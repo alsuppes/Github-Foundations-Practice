@@ -2,7 +2,7 @@ require 'octokit'
 
 client = Octokit::Client.new
 
-repo = "Anna-S-Test/Github-Foundations-Practice"
+repo = "alsuppes/Github-Foundations-Practice"
 new_branch_name = "ruby"
 base_branch = "master"
 
