@@ -1,14 +1,9 @@
 require 'octokit'
 
-client = Octokit::Client.new
-
-repo = "alsuppes/Github-Foundations-Practice"
-new_branch_name = "ruby"
-base_branch = "master"
-
-
-# Get the latest commit SHA of the base branch
-sha_latest_commit = client.commits(repo, base_branch).first.sha
+client = Octokit::Client.new(access_token: ENV['GH_TOKEN'])
 
 # Create the new branch
-client.create.ref(repo, "refs/heads/#{new_branch_name}", sha_latest_commit)
+client.create_ref(
+"alsuppes/Github-Foundations-Practice", 
+"refs/heads/sdks", 
+"e13a01297f1b704b0a45a6cb7770ad9fb066bd98")
