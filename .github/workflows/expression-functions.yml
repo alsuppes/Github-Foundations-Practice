@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main
-
-  issues:
-    type: [opened, labeled]
-
 jobs:
   expression-functions:
     runs-on: ubuntu-latest
@@ -22,9 +18,7 @@ jobs:
         if: endsWith('Hello world', 'ld')
         run: echo "The string ends with 'ld'."
       - name: Format and echo string
-        run:'echo ${{ format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat') }}''
-      - name: Join issue labels
-        if: github.event_name == 'issues'
+        run:echo ${{ format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat') }}
         run: echo "Issue labels: ${{ join(github.event.issue.labels.*.name, ', ') }}"
       - name: Convert job context to JSON
         run: echo "Job context in JSON: ${{ toJSON(github.job) }}"
